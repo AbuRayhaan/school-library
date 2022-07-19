@@ -26,12 +26,12 @@ A school library app built with Ruby.
 
 ### Getting Started
 
-To view the morse code;
+To view the library source code;
 
     a) Clone the project
 
         ```terminal
-        git@github.com:aburayhaan/decode-morse-code.git
+        git@github.com:aburayhaan/school-library.git
         ```
     b) View the folder
         - cd into the project directory
