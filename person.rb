@@ -11,7 +11,7 @@ class Person < Nameable
     @parent_permission = parent_permission
     super()
   end
-  
+ 
   def correct_name
     @name.correct_name
   end
