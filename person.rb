@@ -12,7 +12,7 @@ class Person < Nameable
     super()
     @rentals = []
   end
-  
+
   def add_rental(book, date)
     Rental.new(date, self, book)
   end
