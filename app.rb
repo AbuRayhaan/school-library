@@ -31,10 +31,9 @@ class App
   def create_person
     puts 'To create a student press 1, to create a teacher press 2: '
     n = Integer(gets.chomp)
-    
     case n
-    when 1 then create_student
-    when 2 then create_teacher
+    when 1 create_student
+    when 2 create_teacher
     else puts 'Invalid selection'
     end
   end
@@ -49,9 +48,9 @@ class App
     parent_permission = gets.chomp.downcase
 
     case parent_permission
-    when 'n' then
+    when 'n'
       puts 'Student doesn\'t have parent\'s permission, unable to create student.'
-    when 'y' then
+    when 'y'
       student = Student.new(@main_classroom, age, name, parent_permission: parent_permission)
       @people << student
       puts 'Student created successfully!'
@@ -84,12 +83,12 @@ class App
 
   def create_rental
     puts 'Select a book using it\'s number: '
-    @books.each_with_index{|book, index| puts "#{index}) #{book.title}"}
+    @books.each_with_index { |book, index| puts "#{index}) #{book.title}" }
     book_id = gets.chomp.to_i
     book = @books[book_id]
 
     puts 'Select a person using it\'s number: '
-    @people.each_with_index {|person, index| puts "#{index}) #{person}"}
+    @people.each_with_index { |person, index| puts "#{index}) #{person}" }
     person_id = gets.chomp.to_i
     person = @people[person_id]
 
@@ -102,45 +101,48 @@ class App
   def list_all_rentals
     puts 'Enter ID of person: '
     id = gets.chomp.to_i
-    rentals = @rentals.select |r|
-    if r.owner.id == id
-      puts 'Rentals: '
-      puts rentals
+    rentals = @rentals.select { |r| r.owner.id == id }
+    puts 'Rentals:'
+    puts rentals
+    # rentals = @rentals.select |r|
+    # if r.owner.id == id
+    #   puts 'Rentals: '
+    #   puts rentals
+    # else
+    #   puts 'Records not found for given ID'
+    # end
+  end
+
+  def execute_inputs
+    input = Integer(gets.chomp)
+    case input
+    when 1 then list_books
+    when 2 then list_people
+    when 3 then create_person
+    when 4 then create_book
+    when 5 then create_rental
+    when 6 then list_all_rentals
+    when 7
+      puts 'Thank you for using this app. Goodbye'
+      exit
     else
-      puts 'Records not found for given ID'
+      puts 'Kindly enter a number between 1-7'
     end
   end
-  
-def execute_inputs
-  input = Integer(gets.chomp)
-  case input
-  when 1 then list_books
-  when 2 then list_people
-  when 3 then create_person
-  when 4 then create_book
-  when 5 then create_rental
-  when 6 then list_all_rentals
-  when 7
-    puts 'Thank you for using this app. Goodbye'
-    exit
-  else
-    puts 'Kindly enter a number between 1-7'
-  end
-end
 
-def start
-  puts 'Welcome to School Library App!'
-  puts ' '
-  puts 'Please choose an option by entering a number:'
-  loop do
-    puts '1 - List all books'
-    puts '2 - List all people'
-    puts '3 - Create a person'
-    puts '4 - Create a book'
-    puts '5 - Create a rental'
-    puts '6 - List all rentals for a given person id'
-    puts '7 - Exit'
-    execute_inputs
+  def start
+    puts 'Welcome to School Library App!'
+    puts ' '
+    puts 'Please choose an option by entering a number:'
+    loop do
+      puts '1 - List all books'
+      puts '2 - List all people'
+      puts '3 - Create a person'
+      puts '4 - Create a book'
+      puts '5 - Create a rental'
+      puts '6 - List all rentals for a given person id'
+      puts '7 - Exit'
+      execute_inputs
+    end
   end
-end
 end
