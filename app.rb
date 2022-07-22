@@ -58,12 +58,20 @@ class App
     age = gets.chomp.to_i
     print 'Teacher\'s specialization: '
     specialization = gets.chomp
-    @people << Teacher.new(age: age, name: name, specialization: specialization)
+    teacher = Teacher.new(age: age, name: name, specialization: specialization)
+    @people << teacher
     puts 'Teacher created successfully!'
   end
 
   def create_book
-    puts 'create a book in my database'
+    puts 'Create a new book.'
+    print 'Title: '
+    title = gets.chomp
+    print 'Author: '
+    author = gets.chomp
+    book = Book.new(title, author)
+    @books << book
+    puts 'Book #{title} created successfully'
   end
 
   def create_rental
