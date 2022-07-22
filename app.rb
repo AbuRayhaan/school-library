@@ -7,10 +7,14 @@ class App
 
   def list_books
     puts 'Catalog is empty! Please add a book.' if @books.empty?
+    @books.each do |book|
+      puts "Title: \"#{book.title}\", Author: #{book.author}"
+    end
+    puts ''
   end
 
   def list_people
-    puts 'list people in my database'
+    puts 'List people in my database'
   end
 
   def create_person
