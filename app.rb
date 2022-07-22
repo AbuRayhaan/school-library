@@ -14,7 +14,10 @@ class App
   end
 
   def list_people
-    puts 'List people in my database'
+    puts 'Database is empty! Please add a person.' if @persons.empty?
+    @persons.each do |person|
+      puts "[#{person.class.name}] Name: #{person.name}, Age: #{person.age}, id: #{person.id}"
+    end
   end
 
   def create_person
