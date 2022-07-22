@@ -21,7 +21,14 @@ class App
   end
 
   def create_person
-    puts 'create a person in my database'
+    puts 'To create a student press 1, to create a teacher press 2: '
+    n = gets.chomp
+    
+    case n
+    when 1 then create_student
+    when 2 then create_teacher
+    else puts 'Invalid selection'
+    end
   end
 
   def create_book
