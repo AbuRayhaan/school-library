@@ -71,11 +71,24 @@ class App
     author = gets.chomp
     book = Book.new(title, author)
     @books << book
-    puts 'Book #{title} created successfully'
+    puts "Book #{title} created successfully"
   end
 
   def create_rental
-    puts 'create a rental in my database'
+    puts 'Select a book using it\'s number: '
+    @books.each_with_index{|book, index| puts "#{index}) #{book.title}"}
+    book_id = gets.chomp.to_i
+    book = @books[book_id]
+
+    puts 'Select a person using it\'s number: '
+    @people.each_with_index {|person, index| puts "#{index}) #{person}"}
+    person_id = gets.chomp.to_i
+    person = @people[person_id]
+
+    puts 'Date: '
+    date = gets.chomp
+    @rentals << Rental.new(book, person, date)
+    puts 'Records created successfully'
   end
 
   def list_all_rentals
