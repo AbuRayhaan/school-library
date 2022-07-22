@@ -116,6 +116,7 @@ class App
     # end
   end
 
+# rubocop:disable Metrics/CyclonicComplexity
   def execute_inputs
     input = Integer(gets.chomp)
     case input
