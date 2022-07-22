@@ -30,11 +30,14 @@ class App
 
   def create_person
     puts 'To create a student press 1, to create a teacher press 2: '
-    n = Integer(gets.chomp)
+    n = gets.chomp
     case n
-    when 1 create_student
-    when 2 create_teacher
-    else puts 'Invalid selection'
+    when '1' 
+      create_student
+    when '2' 
+      create_teacher
+    else 
+      puts 'Invalid selection'
     end
   end
 
@@ -94,7 +97,7 @@ class App
 
     puts 'Date: '
     date = gets.chomp
-    @rentals << Rental.new(book, person, date)
+    @rentals << Rental.new(date, person, book)
     puts 'Records created successfully'
   end
 
