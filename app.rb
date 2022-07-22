@@ -32,11 +32,11 @@ class App
     puts 'To create a student press 1, to create a teacher press 2: '
     n = gets.chomp
     case n
-    when '1' 
+    when '1'
       create_student
-    when '2' 
+    when '2'
       create_teacher
-    else 
+    else
       puts 'Invalid selection'
     end
   end
