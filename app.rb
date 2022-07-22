@@ -3,12 +3,14 @@ require_relative 'person'
 require_relative 'student'
 require_relative 'teacher'
 require_relative 'rental'
+# require_relative 'classroom'
 
 class App
   def initialize()
     @people = []
     @books = []
     @rentals = []
+    # @main_classroom = Classroom.new('Main Class')
   end
 
   def list_books
@@ -28,7 +30,7 @@ class App
 
   def create_person
     puts 'To create a student press 1, to create a teacher press 2: '
-    n = gets.chomp
+    n = Integer(gets.chomp)
     
     case n
     when 1 then create_student
@@ -38,7 +40,7 @@ class App
   end
 
   def create_student
-    print 'Create a new student'
+    puts 'Create a new student'
     print 'Student Name:'
     name = gets.chomp
     print 'Student Age: '
@@ -48,23 +50,23 @@ class App
 
     case parent_permission
     when 'n' then
-      puts 'Student doesn\'t have parent\'s permission, unable to create student'
+      puts 'Student doesn\'t have parent\'s permission, unable to create student.'
     when 'y' then
-      student = Student.new(age: age, name: name, parent_permission: parent_permission, classroom: @classroom)
+      student = Student.new(age, name, parent_permission)
       @people << student
       puts 'Student created successfully!'
     end
   end
 
   def create_teacher
-    print 'Create a new teacher'
+    puts 'Create a new teacher'
     print 'Teacher Name: '
     name = gets.chomp
     print 'Teacher Age: '
     age = gets.chomp.to_i
     print 'Teacher\'s specialization: '
     specialization = gets.chomp
-    teacher = Teacher.new(age: age, name: name, specialization: specialization)
+    teacher = Teacher.new(age, name, specialization)
     @people << teacher
     puts 'Teacher created successfully!'
   end
