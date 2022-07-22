@@ -31,8 +31,3 @@ class Person < Nameable
     @age >= 18
   end
 end
-
-
-# tobi = Person.new(5,'Gra', 'y')
-
-# print tobi
