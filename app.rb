@@ -6,21 +6,27 @@ class App
   end
 
   def list_books
+    puts 'Catalog is empty! Please add a book.' if @books.empty?
   end
 
   def list_people
+    puts 'list people in my database'
   end
 
   def create_person
+    puts 'create a person in my database'
   end
 
   def create_book
+    puts 'create a book in my database'
   end
 
   def create_rental
+    puts 'create a rental in my database'
   end
 
-  def list all rentals
+  def list_all_rentals
+    puts 'list book rentals in my database'
   end
 
   def execute_inputs
