@@ -1,6 +1,6 @@
 class App
   def initialize()
-    @persons = []
+    @people = []
     @books = []
     @rentals = []
   end
@@ -14,8 +14,8 @@ class App
   end
 
   def list_people
-    puts 'Database is empty! Please add a person.' if @persons.empty?
-    @persons.each do |person|
+    puts 'Database is empty! Please add a person.' if @people.empty?
+    @people.each do |person|
       puts "[#{person.class.name}] Name: #{person.name}, Age: #{person.age}, id: #{person.id}"
     end
   end
@@ -45,13 +45,21 @@ class App
       puts 'Student doesn\'t have parent\'s permission, unable to create student'
     when 'y' then
       student = Student.new(age: age, name: name, parent_permission: parent_permission, classroom: @classroom)
-      @persons << student
+      @people << student
       puts 'Student created successfully!'
     end
   end
 
   def create_teacher
-    puts 'Create a new teacher'
+    print 'Create a new teacher'
+    print 'Teacher Name: '
+    name = gets.chomp
+    print 'Teacher Age: '
+    age = gets.chomp.to_i
+    print 'Teacher\'s specialization: '
+    specialization = gets.chomp
+    @people << Teacher.new(age: age, name: name, specialization: specialization)
+    puts 'Teacher created successfully!'
   end
 
   def create_book
