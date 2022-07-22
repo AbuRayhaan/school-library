@@ -3,14 +3,14 @@ require_relative 'person'
 require_relative 'student'
 require_relative 'teacher'
 require_relative 'rental'
-# require_relative 'classroom'
+require_relative 'classroom'
 
 class App
   def initialize()
     @people = []
     @books = []
     @rentals = []
-    # @main_classroom = Classroom.new('Main Class')
+    @main_classroom = Classroom.new('Main Class')
   end
 
   def list_books
@@ -52,7 +52,7 @@ class App
     when 'n' then
       puts 'Student doesn\'t have parent\'s permission, unable to create student.'
     when 'y' then
-      student = Student.new(age, name, parent_permission)
+      student = Student.new(@main_classroom, age, name, parent_permission: parent_permission)
       @people << student
       puts 'Student created successfully!'
     end
@@ -66,7 +66,7 @@ class App
     age = gets.chomp.to_i
     print 'Teacher\'s specialization: '
     specialization = gets.chomp
-    teacher = Teacher.new(age, name, specialization)
+    teacher = Teacher.new(specialization, age, name)
     @people << teacher
     puts 'Teacher created successfully!'
   end
