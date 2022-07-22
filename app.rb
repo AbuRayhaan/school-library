@@ -92,7 +92,15 @@ class App
   end
 
   def list_all_rentals
-    puts 'list book rentals in my database'
+    puts 'Enter ID of person: '
+    id = gets.chomp.to_i
+    rentals = @rentals.select |r|
+    if r.owner.id == id
+      puts 'Rentals: '
+      puts rentals
+    else
+      puts 'Records not found for given ID'
+    end
   end
 
   def execute_inputs
