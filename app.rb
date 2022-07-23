@@ -104,7 +104,7 @@ class App
   def list_all_rentals
     puts 'Enter ID of person: '
     id = gets.chomp.to_i
-    rentals = @rentals.select { |r| r.owner.id == id }
+    rentals = @rentals.select { |rent| rent.person.id == id }
     puts 'Rentals:'
     puts rentals
     # rentals = @rentals.select |r|
