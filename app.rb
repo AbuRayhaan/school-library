@@ -59,7 +59,7 @@ class App
 
   def create_student
     puts 'Create a new student'
-    print 'Student Name:'
+    print 'Student Name: '
     name = gets.chomp
     print 'Student Age: '
     age = gets.chomp.to_i
@@ -107,8 +107,9 @@ class App
     book = @books[book_id]
 
     puts 'Select a person using it\'s number: '
-    @people.each_with_index { |person, index| 
-      puts "#{index}) [#{person.class.name}] Name: #{person.name}, Age: #{person.age}, id: #{person.id}" }
+    @people.each_with_index do |person, index| 
+      puts "#{index}) [#{person.class.name}] Name: #{person.name}, Age: #{person.age}, id: #{person.id}" 
+    end
     person_id = gets.chomp.to_i
     person = @people[person_id]
 
