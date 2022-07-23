@@ -116,7 +116,8 @@ class App
       if rental.person.id == id
         puts 'Rented Books: '
         puts "Person: #{rental.person.name} Date: #{rental.date}, Book: '#{rental.book.title}' by #{rental.book.author}"
-      else puts 'Records not found for given ID'
+      else
+        puts 'Records not found for given ID'
       end
     end
   end
