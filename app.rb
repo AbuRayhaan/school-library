@@ -116,7 +116,7 @@ class App
     # end
   end
 
-# rubocop:disable Metrics/CyclomaticComplexity
+  # rubocop:disable Metrics/CyclomaticComplexity
 
   def execute_inputs
     input = Integer(gets.chomp)
@@ -135,7 +135,7 @@ class App
     end
   end
 
-# rubocop:enable Metrics/CyclomaticComplexity
+  # rubocop:enable Metrics/CyclomaticComplexity
 
   def start
     puts 'Welcome to School Library App!'
