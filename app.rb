@@ -16,17 +16,7 @@ class App
   def start
     puts 'Welcome to School Library App!'
     puts ' '
-    puts 'Please choose an option by entering a number:'
-    loop do
-      puts '1 - List all books'
-      puts '2 - List all people'
-      puts '3 - Create a person'
-      puts '4 - Create a book'
-      puts '5 - Create a rental'
-      puts '6 - List all rentals for a given person id'
-      puts '7 - Exit'
-      execute_inputs
-    end
+    inputs
   end
 
   def list_books
@@ -39,13 +29,13 @@ class App
 
   def list_people
     puts 'Database is empty! Please add a person.' if @people.empty?
-    @people.each do |person|
-      puts "[#{person.class.name}] Name: #{person.name}, Age: #{person.age}, id: #{person.id}"
+    @people.each_with_index do |person, index|
+      puts "#{index}) [#{person.class.name}] Name: #{person.name}, Age: #{person.age}, id: #{person.id}"
     end
   end
 
   def create_person
-    puts 'To create a student press 1, to create a teacher press 2: '
+    puts 'To create a student press (1), to create a teacher press (2): '
     n = gets.chomp
     case n
     when '1'
@@ -122,12 +112,11 @@ class App
   def list_all_rentals
     puts 'Enter ID of person: '
     id = gets.chomp.to_i
-    puts 'Rented Books: '
     @rentals.each do |rental|
       if rental.person.id == id
+        puts 'Rented Books: '
         puts "Person: #{rental.person.name} Date: #{rental.date}, Book: '#{rental.book.title}' by #{rental.book.author}"
-      else
-        puts
+      elsif
         puts 'Records not found for given ID'
       end
     end
