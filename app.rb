@@ -97,8 +97,8 @@ class App
     book = @books[book_id]
 
     puts 'Select a person using it\'s number: '
-    @people.each_with_index do |person, index| 
-      puts "#{index}) [#{person.class.name}] Name: #{person.name}, Age: #{person.age}, id: #{person.id}" 
+    @people.each_with_index do |person, index|
+      puts "#{index}) [#{person.class.name}] Name: #{person.name}, Age: #{person.age}, id: #{person.id}"
     end
     person_id = gets.chomp.to_i
     person = @people[person_id]
@@ -116,8 +116,7 @@ class App
       if rental.person.id == id
         puts 'Rented Books: '
         puts "Person: #{rental.person.name} Date: #{rental.date}, Book: '#{rental.book.title}' by #{rental.book.author}"
-      elsif
-        puts 'Records not found for given ID'
+      elsif puts 'Records not found for given ID'
       end
     end
   end
