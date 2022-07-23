@@ -15,8 +15,8 @@ class App
 
   def list_books
     puts 'Catalog is empty! Please add a book.' if @books.empty?
-    @books.each do |book|
-      puts "Title: \"#{book.title}\", Author: #{book.author}"
+    @books.each_with_index do |book, index|
+      puts "#{index}) Title: \"#{book.title}\", Author: #{book.author}"
     end
     puts ''
   end
@@ -91,7 +91,7 @@ class App
     book = @books[book_id]
 
     puts 'Select a person using it\'s number: '
-    @people.each_with_index { |person, index| puts "#{index}) #{person}" }
+    @people.each_with_index { |person, index| puts "#{index}) [#{person.class.name}] Name: #{person.name}, Age: #{person.age}, id: #{person.id}" }
     person_id = gets.chomp.to_i
     person = @people[person_id]
 
@@ -104,16 +104,15 @@ class App
   def list_all_rentals
     puts 'Enter ID of person: '
     id = gets.chomp.to_i
-    rentals = @rentals.select { |rent| rent.person.id == id }
-    puts 'Rentals:'
-    puts rentals
-    # rentals = @rentals.select |r|
-    # if r.owner.id == id
-    #   puts 'Rentals: '
-    #   puts rentals
-    # else
-    #   puts 'Records not found for given ID'
-    # end
+    puts 'Rented Books: '
+    @rentals.each do |rental|
+      if rental.person.id == id
+        puts "Person: #{rental.person.name} Date: #{rental.date}, Book: '#{rental.book.title}' by #{rental.book.author}"
+      else
+        puts
+        puts 'No record were found for the given ID'
+      end
+    end
   end
 
   # rubocop:disable Metrics/CyclomaticComplexity
