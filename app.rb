@@ -15,7 +15,6 @@ class App
 
   def start
     puts 'Welcome to School Library App!'
-    puts ' '
     inputs
   end
 
@@ -24,11 +23,10 @@ class App
     @books.each_with_index do |book, index|
       puts "#{index}) Title: \"#{book.title}\", Author: #{book.author}"
     end
-    puts ''
   end
 
   def list_people
-    puts 'Database is empty! Please add a person.' if @people.empty?
+    puts 'No records found! Please add a person.' if @people.empty?
     @people.each_with_index do |person, index|
       puts "#{index}) [#{person.class.name}] Name: #{person.name}, Age: #{person.age}, id: #{person.id}"
     end
@@ -62,7 +60,7 @@ class App
     when 'y'
       student = Student.new(@main_classroom, age, name, parent_permission: parent_permission)
       @people << student
-      puts 'Student created successfully!'
+      puts "Student (#{name}) created successfully! ✅ 🎉🎉🎉"
     end
   end
 
@@ -76,7 +74,7 @@ class App
     specialization = gets.chomp
     teacher = Teacher.new(specialization, age, name)
     @people << teacher
-    puts 'Teacher created successfully!'
+    puts "Teacher (#{name}) created successfully!  ✅ 🎉🎉🎉"
   end
 
   def create_book
@@ -87,7 +85,7 @@ class App
     author = gets.chomp
     book = Book.new(title, author)
     @books << book
-    puts "Book #{title} created successfully"
+    puts "#{title} created successfully  ✅ 🎉🎉🎉"
   end
 
   def create_rental
@@ -106,7 +104,7 @@ class App
     puts 'Date: '
     date = gets.chomp
     @rentals << Rental.new(date, person, book)
-    puts 'Records created successfully'
+    puts 'Records created successfully  ✅ 🎉🎉🎉'
   end
 
   def list_all_rentals
@@ -114,7 +112,7 @@ class App
     id = gets.chomp.to_i
     @rentals.each do |rental|
       if rental.person.id == id
-        puts 'Rented Books: '
+        puts 'Rented Book: '
         puts "Person: #{rental.person.name} Date: #{rental.date}, Book: '#{rental.book.title}' by #{rental.book.author}"
       else
         puts 'Records not found for given ID'
