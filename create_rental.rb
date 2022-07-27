@@ -19,7 +19,6 @@ class CreateRental
     person = @people[person_id]
     puts 'Date: '
     date = gets.chomp
-    # person.add_rental(date, book)
     @rentals << Rental.new(date, person, book)
     puts 'Records created successfully  ✅ 🎉🎉🎉'
   end

@@ -59,7 +59,7 @@ class Menu
 
   def list_people
     puts 'People 👥'
-    puts 'No records found! Choose (3) add a person.' if @people.empty?
+    puts 'No records found! Choose (3) to add a person.' if @people.empty?
     @people.each_with_index do |person, index|
       puts "#{index}) [#{person.class.name}] Name: #{person.name}, Age: #{person.age}, id: #{person.id}"
     end
