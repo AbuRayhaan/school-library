@@ -41,7 +41,7 @@ class Menu
     when 6 then list_all_rentals
     when 7
       puts 'Thank you for using this app. Goodbye'
-    exit
+      exit
     else
       puts 'Kindly enter a number between 1-7'
     end
