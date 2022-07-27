@@ -1,6 +1,6 @@
 class CreateBook
-  def initialize(book)
-    @books = book
+  def initialize(books)
+    @books = books
   end
 
   def create_book
