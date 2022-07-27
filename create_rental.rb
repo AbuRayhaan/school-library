@@ -1,7 +1,8 @@
 class CreateRental
-  def initialize(people, books)
+  def initialize(people, books, rentals)
     @people = people
     @books = books
+    @rentals = rentals
   end
 
   def create_rental
@@ -16,9 +17,9 @@ class CreateRental
     end
     person_id = gets.chomp.to_i
     person = @people[person_id]
-
     puts 'Date: '
     date = gets.chomp
+    # person.add_rental(date, book)
     @rentals << Rental.new(date, person, book)
     puts 'Records created successfully  ✅ 🎉🎉🎉'
   end
