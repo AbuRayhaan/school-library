@@ -1,3 +1,6 @@
+require_relative 'create_teacher'
+require_relative 'create_student'
+
 class CreatePerson
   def initialize(people)
     @people = people
