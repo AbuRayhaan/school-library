@@ -17,8 +17,8 @@ class CreateStudent
       puts 'Student doesn\'t have parent\'s permission, unable to create student.'
     when 'y'
       student = Student.new(nil, age, name, parent_permission: parent_permission)
-    @people << student
-    puts "Student (#{name}) created successfully! ✅ 🎉🎉🎉"
+      @people << student
+      puts "Student (#{name}) created successfully! ✅ 🎉🎉🎉"
     end
   end
 end
