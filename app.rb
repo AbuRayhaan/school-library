@@ -7,7 +7,7 @@ class App
 
   def start
     puts 'Welcome to School Library App!'
-    inputs
+    @menu.inputs
     @menu.save_books
     @menu.save_persons
     @menu.save_rentals
