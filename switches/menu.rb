@@ -1,9 +1,9 @@
 require_relative 'create_person'
 require_relative 'create_book'
 require_relative 'create_rental'
-require 'controllers/book_controller'
-require 'controllers/person_controller'
-require 'controllers/rental_controller'
+require './controllers/book_controller'
+require './controllers/person_controller'
+require './controllers/rental_controller'
 
 class Menu
   include BooksController
