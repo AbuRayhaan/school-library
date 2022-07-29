@@ -18,7 +18,7 @@ class CreateStudent
     when 'y'
       student = Student.new(nil, nil, age, name, parent_permission: parent_permission)
     @people << student
-    puts "Student (#{name}) created successfully! ✅ 🎉🎉🎉"
+      puts "Student (#{name}) created successfully! ✅ 🎉🎉🎉"
     end
   end
 end
