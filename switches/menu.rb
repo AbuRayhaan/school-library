@@ -82,7 +82,7 @@ class Menu
         puts 'Rented Book: '
         puts "Person: #{rental.person.name} Date: #{rental.date}, Book: '#{rental.book.title}' by #{rental.book.author}"
       else
-        puts "#{rental.person.name} has no records for rented books."
+        puts "User has no records for rented books."
         # puts 'Records not found for given ID'
       end
     end
