@@ -12,7 +12,7 @@ module PersonsController
         store << if person['className'] == 'Student'
                    Student.new(person['id'], nil, person['age'], person['name'], parent_permission: person['parent_permission'])
                  else
-                   Teacher.new(person['id'], person['age'], person['specialuzation'], person['name'])
+                   Teacher.new(person['id'], person['specialuzation'], person['age'], person['name'])
                  end
       end
     else
@@ -23,13 +23,13 @@ module PersonsController
 
   def save_persons
     store = []
-    @person.each do |person|
+    @people.each do |person|
       if person.is_a?(Student)
-        store << { id: person.id, name: person.name, age: person.age, parent_permission: person.parent_permission, className: person.clas }
+        store << { id: person.id, className: person.class, age: person.age, name: person.name,  parent_permission: person.parent_permission }
       end
 
       next unless person.is_a?(Teacher)
-        store << { id: person.id, name: person.name, age: person.age, parent_permission: person.parent_permission, specialization: person.specialization, className: person.clas }
+        store << { id: person.id, specialization: person.specialization, age: person.age, name: person.name, parent_permission: person.parent_permission, className: person.class }
     end
     File.write('./storage/persons.json', store.to_json)
   end
