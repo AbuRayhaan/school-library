@@ -46,6 +46,9 @@ class Menu
     when 6 then list_all_rentals
     when 7
     puts 'Thank you for using this app. Goodbye'
+    save_books
+    save_persons
+    save_rentals
     exit
     else
     puts 'Kindly enter a number between 1-7'
@@ -71,6 +74,7 @@ class Menu
   end
 
   def list_all_rentals
+    list_people
     puts 'Enter ID of person: '
     id = gets.chomp.to_i
     @rentals.each do |rental|
@@ -78,7 +82,8 @@ class Menu
         puts 'Rented Book: '
         puts "Person: #{rental.person.name} Date: #{rental.date}, Book: '#{rental.book.title}' by #{rental.book.author}"
       else
-        puts 'Records not found for given ID'
+        puts "#{rental.person.name} has no records for rented books."
+        # puts 'Records not found for given ID'
       end
     end
   end
