@@ -3,7 +3,7 @@ require './core/book'
 
 describe do
   context 'Student Class' do
-    before (:each) do
+    before :each do
       @student = Student.new(nil, nil, 2, 'Rayhaan Hammed', parent_permission: false)
       @book = Book.new(nil, 'Success is key', 'Hammed Adisa')
     end

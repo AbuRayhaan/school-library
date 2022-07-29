@@ -2,7 +2,7 @@ require './core/book'
 
 describe Book do
   context 'Book Class' do
-    before (:each) do
+    before :each do
       @book = Book.new(5, 'Billionaires Behaviour', 'Stephen Akintayo')
     end
     it 'should return the book id' do

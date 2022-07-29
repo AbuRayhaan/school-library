@@ -3,7 +3,7 @@ require './core/student'
 
 describe do
   context 'Classroom class' do
-    before (:each) do
+    before :each do
       @chemistry_class = Classroom.new 'Chemistry classroom'
       @biology_class = Classroom.new 'Biology classroom'
     end

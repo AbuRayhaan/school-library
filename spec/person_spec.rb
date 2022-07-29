@@ -2,7 +2,7 @@ require './core/person'
 
 describe Person do
   context 'Person Class' do
-    before (:each) do
+    before :each do
       @person = Person.new(2, 'Rayhaan Hammed')
     end
     it 'should return person age' do

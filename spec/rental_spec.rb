@@ -5,7 +5,7 @@ require './core/student'
 
 describe do
   context 'Rental class' do
-    before (:each) do
+    before :each do
       @book = Book.new(5, 'Billionaires Behaviour', 'Stephen Akintayo')
       @person = Teacher.new(nil, 'Chemistry', 33, 'Mrs. Akanji')
       @rental = Rental.new('1/1/2022', @person, @book)
