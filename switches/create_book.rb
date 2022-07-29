@@ -9,7 +9,7 @@ class CreateBook
     title = gets.chomp
     print 'Author: '
     author = gets.chomp
-    book = Book.new(title, author)
+    book = Book.new(nil, title, author)
     @books << book
     puts "#{title} created successfully  ✅ 🎉🎉🎉"
   end

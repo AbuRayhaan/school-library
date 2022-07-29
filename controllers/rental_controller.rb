@@ -24,13 +24,13 @@ module RentalsController
     File.write('./storage/rentals.json', store.to_json)
   end
 
-  private
+  # private
 
-  def book(id)
-    @books.each { |book| return book if b.id == id }
-  end
+  # def book(id)
+  #   @books.each { |book| return book if book.id == id }
+  # end
 
-  def person(id)
-    @persons.each { |person| return person if person.id == id }
-  end
+  # def person(id)
+  #   @people.each { |person| return person if person.id == id }
+  # end
 end
