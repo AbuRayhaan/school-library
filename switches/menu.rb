@@ -51,7 +51,7 @@ class Menu
     save_rentals
     exit
     else
-    puts 'Kindly enter a number between 1-7'
+      puts 'Kindly enter a number between 1-7'
     end
   end
 
