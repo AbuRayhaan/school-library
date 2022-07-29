@@ -35,8 +35,8 @@ module PersonsController
       next unless person.is_a?(Teacher)
 
       store << { id: person.id, specialization: person.specialization,
-                  age: person.age, name: person.name,
-                  parent_permission: person.parent_permission, className: person.class }
+                 age: person.age, name: person.name,
+                 parent_permission: person.parent_permission, className: person.class }
     end
     File.write('./storage/persons.json', store.to_json)
   end
