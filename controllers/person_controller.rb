@@ -10,9 +10,11 @@ module PersonsController
       person_data = file.read
       JSON.parse(person_data).each do |person|
         store << if person['className'] == 'Student'
-                   Student.new(person['id'], nil, person['age'], person['name'], parent_permission: person['parent_permission'])
+                   Student.new(person['id'], nil, person['age'],
+                    person['name'], parent_permission: person['parent_permission'])
                  else
-                   Teacher.new(person['id'], person['specialuzation'], person['age'], person['name'])
+                   Teacher.new(person['id'], person['specialuzation'],
+                     person['age'], person['name'])
                  end
       end
     else
@@ -29,6 +31,7 @@ module PersonsController
       end
 
       next unless person.is_a?(Teacher)
+
         store << { id: person.id, specialization: person.specialization, age: person.age, name: person.name, parent_permission: person.parent_permission, className: person.class }
     end
     File.write('./storage/persons.json', store.to_json)

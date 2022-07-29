@@ -45,7 +45,7 @@ class Menu
     when 5 then @create_rental.create_rental
     when 6 then list_all_rentals
     when 7
-    puts 'Thank you for using this app. Goodbye'
+      puts 'Thank you for using this app. Goodbye'
     save_books
     save_persons
     save_rentals

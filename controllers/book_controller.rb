@@ -19,7 +19,7 @@ module BooksController
   def save_books
     store = []
     @books.each do |book|
-        store << {id: book.id, title: book.title, author: book.author}
+      store << { id: book.id, title: book.title, author: book.author }
     end
     File.write('./storage/books.json', store.to_json)
   end
