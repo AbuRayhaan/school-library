@@ -1,13 +1,18 @@
-require_relative 'list_items'
 require_relative 'create_person'
 require_relative 'create_book'
 require_relative 'create_rental'
+require './controllers/book_controller'
+require './controllers/person_controller'
+require './controllers/rental_controller'
 
 class Menu
+  include BooksController
+  include PersonsController
+  include RentalsController
   def initialize()
-    @people = []
-    @books = []
-    @rentals = []
+    @people = fetch_persons
+    @books = fetch_books
+    @rentals = fetch_rentals
     @create_book = CreateBook.new(@books)
     @create_person = CreatePerson.new(@people)
     @create_rental = CreateRental.new(@people, @books, @rentals)
@@ -41,6 +46,9 @@ class Menu
     when 6 then list_all_rentals
     when 7
       puts 'Thank you for using this app. Goodbye'
+      save_books
+      save_persons
+      save_rentals
       exit
     else
       puts 'Kindly enter a number between 1-7'
@@ -66,6 +74,7 @@ class Menu
   end
 
   def list_all_rentals
+    list_people
     puts 'Enter ID of person: '
     id = gets.chomp.to_i
     @rentals.each do |rental|
@@ -73,7 +82,7 @@ class Menu
         puts 'Rented Book: '
         puts "Person: #{rental.person.name} Date: #{rental.date}, Book: '#{rental.book.title}' by #{rental.book.author}"
       else
-        puts 'Records not found for given ID'
+        puts 'User has no records for rented books.'
       end
     end
   end
